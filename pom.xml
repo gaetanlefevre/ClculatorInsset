@@ -13,20 +13,12 @@
   <properties>
     <!-- Convenience property to set the GWT version -->
     <gwtVersion>2.7.0</gwtVersion>
+
     <!-- GWT needs at least java 1.6 -->
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- EXAMPLE FOR MYSQL -->
-    <sonar.jdbc.url>
-        jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8
-    </sonar.jdbc.url>
-    <sonar.jdbc.username>sonar</sonar.jdbc.username>
-    <sonar.jdbc.password>sonar</sonar.jdbc.password>
-    <!-- optional URL to server. Default value is http://localhost:9000 -->
-    <sonar.host.url>
-    http://localhost:9010/sonar
-    </sonar.host.url>
   </properties>
 
   <dependencyManagement>
@@ -93,11 +85,6 @@
             <module>org.insset.calculatorInsset</module>
           </modules>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>2.6</version>
       </plugin>
     </plugins>
   </build>
