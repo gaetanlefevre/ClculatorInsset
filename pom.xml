@@ -20,15 +20,15 @@
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- EXAMPLE FOR MYSQL -->
--    <sonar.jdbc.url>
--        jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8
--    </sonar.jdbc.url>
--    <sonar.jdbc.username>sonar</sonar.jdbc.username>
--    <sonar.jdbc.password>sonar</sonar.jdbc.password>
--    <!-- optional URL to server. Default value is http://localhost:9000 -->
--    <sonar.host.url>
--    http://localhost:9010/sonar
--    </sonar.host.url>
+    <sonar.jdbc.url>
+        jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8
+    </sonar.jdbc.url>
+    <sonar.jdbc.username>sonar</sonar.jdbc.username>
+    <sonar.jdbc.password>sonar</sonar.jdbc.password>
+    <!-- optional URL to server. Default value is http://localhost:9000 -->
+    <sonar.host.url>
+    http://localhost:9010/sonar
+    </sonar.host.url>
   </properties>
 
   <dependencyManagement>
@@ -72,7 +72,25 @@
     <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
 
     <plugins>
-
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.7.0.201403182114</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>report</id>
+                    <phase>prepare-package</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
       <!-- GWT Maven Plugin -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>

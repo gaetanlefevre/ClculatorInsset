@@ -59,7 +59,7 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
           if(bool==false){return -1;}
         }
         
-        // En cas d'érreur, retourner le chiffre
+        // En cas d'érreur, retourner la valeur
         if(bool)
         {
             for(int i=0; i<nbr.length(); ++i)
