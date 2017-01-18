@@ -16,11 +16,14 @@ import org.insset.client.service.RomanConverterService;
 public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         RomanConverterService {
     
+    // Nombres décimaux équivalents aux valeurs des nombres romains
     private final int[] nombres = {1000, 500, 100, 50, 10, 5, 1 };
     private final int MAX = 2000;
+    // Cette chaîne de caractères contient tous les symboles des chiffres romains
     private final String symboles = "MDCLXVI";
     private String decimaux;
-
+    
+    // Cette fonction permet de convertir les dates (décimal vers romain)
     @Override
     public String convertDateYears(String nbr) throws IllegalArgumentException {
         String jourA,moisA,anneeA, sep1,sep2;
@@ -59,6 +62,7 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         }
     }
 
+    // Cette fonction permet de convertir les dates (romain vers décimal)
     @Override
     public Integer convertRomanToArabe(String nbr) throws IllegalArgumentException {
         String rom = "";
@@ -66,13 +70,12 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         int x=0;
         int p=0;
         
-        //System.out.print("Entrez un nombre en chiffres romains : ");
-        
         nbr=nbr.intern();
         nbr=nbr.toUpperCase();
         /*System.out.println("La valeur entre "+chaine);*/
         
-        
+        // Conversion en chiffres romains
+        // Pour chaque caractères, convertir avec les symboles
         for(int i=0; i<nbr.length(); ++i)
         {
            this.decimaux=nbr.substring(i,i+1);
@@ -88,6 +91,7 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
           if(bool==false){x = -1; break;}
         }
         
+        // En cas d'érreur, retourner la valeur
         if(bool)
         {
             for(int i=0; i<nbr.length(); ++i)
@@ -110,6 +114,7 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         return x;
     }
 
+    // Cette fonction convertit les chiffres décimaux vers les chiffres romains
     @Override
     public String convertArabeToRoman(Integer nbr) throws IllegalArgumentException {
         int temp=nbr;
