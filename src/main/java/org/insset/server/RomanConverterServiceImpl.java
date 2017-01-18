@@ -18,16 +18,22 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
     
     // Nombres décimaux équivalents aux valeurs des nombres romains
     private final int[] nombres = {1000, 500, 100, 50, 10, 5, 1 };
+    // Variable de limite des années 2000
     private final int MAX = 2000;
     // Cette chaîne de caractères contient tous les symboles des chiffres romains
     private final String symboles = "MDCLXVI";
     private String decimaux;
     
-    // Cette fonction permet de convertir les dates (décimal vers romain)
+    /**
+     * Conversion des dates (décimal vers romain)
+     * @param String nbr
+     * @return
+     * @throws IllegalArgumentException 
+     */
     @Override
     public String convertDateYears(String nbr) throws IllegalArgumentException {
         String jourA,moisA,anneeA, sep1,sep2;
-   
+        // Test d'exception par rapport à la longueur de chaîne et la conversion en int
         try {
             jourA = nbr.substring(0,2);
             moisA = nbr.substring(3,5);
@@ -44,7 +50,9 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         catch(Exception e) {
             return "Date incorrecte";
         }
+        // Test des séparateurs
         if((sep1.equals("/") || sep1.equals("-")) && (sep2.equals("/") || sep2.equals("-"))) {
+            // Test du format de la date
             if((Integer.parseInt(jourA) < 32) && ((Integer.parseInt(moisA) < 13)) && ((Integer.parseInt(anneeA) < 2001))) {
                 String jourR = this.convertArabeToRoman(Integer.parseInt(jourA));
                 String moisR = this.convertArabeToRoman(Integer.parseInt(moisA));
@@ -62,7 +70,12 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         }
     }
 
-    // Cette fonction permet de convertir les dates (romain vers décimal)
+    /**
+     * Conversion des chiffres romains vers les chiffres décimaux
+     * @param String nbr
+     * @return
+     * @throws IllegalArgumentException 
+     */
     @Override
     public Integer convertRomanToArabe(String nbr) throws IllegalArgumentException {
         String rom = "";
@@ -72,10 +85,8 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         
         nbr=nbr.intern();
         nbr=nbr.toUpperCase();
-        /*System.out.println("La valeur entre "+chaine);*/
         
-        // Conversion en chiffres romains
-        // Pour chaque caractères, convertir avec les symboles
+        // Boucle de conversion de chaque caractère
         for(int i=0; i<nbr.length(); ++i)
         {
            this.decimaux=nbr.substring(i,i+1);
@@ -91,7 +102,6 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
           if(bool==false){x = -1; break;}
         }
         
-        // En cas d'érreur, retourner la valeur
         if(bool)
         {
             for(int i=0; i<nbr.length(); ++i)
@@ -109,21 +119,35 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
                      }
                 }
             }
-          //System.out.println("décimaux("+chaine+") = "+x);
         }
-        return x;
+        // Test de valeur MAX
+        if(x > MAX) {
+            return -1;
+        }
+        else {
+            return x;
+        }
+        
     }
 
-    // Cette fonction convertit les chiffres décimaux vers les chiffres romains
+
+    /**
+     * Conversion des chiffres décimaux vers les chiffres romains
+     * @param Integer nbr
+     * @return
+     * @throws IllegalArgumentException 
+     */
     @Override
     public String convertArabeToRoman(Integer nbr) throws IllegalArgumentException {
         int temp=nbr;
         int k=0;
         String conversion="";
-        //System.out.print("Entrez un nombre (en chiffres décimaux) compris entre 1 et " + MAX + " : "); 
+        // Vérifie si la valeur dépasse les années 2000
+        if(nbr > MAX) {
+            return "Nombre trop grand";
+        }
         
-        /*System.out.println("La valeur entre "+chaine);*/
-        /*Conversion*/
+        // Conversion
         for(int i=0;i< this.nombres.length;++i)
         {
             if(temp==4)
@@ -155,9 +179,8 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             }
             k=0;
             if(temp==0){break;}
-        }
-        //System.out.println("romains("+nbr+") = "+conversion);
-        return conversion;
+        }   
+            return conversion;
     } 
 
 }
