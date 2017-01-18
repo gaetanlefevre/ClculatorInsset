@@ -23,8 +23,40 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
 
     @Override
     public String convertDateYears(String nbr) throws IllegalArgumentException {
-        //Implement your code
-        return "XV/III/MX";
+        String jourA,moisA,anneeA, sep1,sep2;
+   
+        try {
+            jourA = nbr.substring(0,2);
+            moisA = nbr.substring(3,5);
+            anneeA = nbr.substring(6);
+            
+            sep1 = nbr.substring(2,3);
+            sep2 = nbr.substring(5,6);
+            
+            Integer.parseInt(jourA);
+            Integer.parseInt(moisA);
+            Integer.parseInt(anneeA);
+            
+        }
+        catch(Exception e) {
+            return "Date incorrecte";
+        }
+        if((sep1.equals("/") || sep1.equals("-")) && (sep2.equals("/") || sep2.equals("-"))) {
+            if((Integer.parseInt(jourA) < 32) && ((Integer.parseInt(moisA) < 13)) && ((Integer.parseInt(anneeA) < 2001))) {
+                String jourR = this.convertArabeToRoman(Integer.parseInt(jourA));
+                String moisR = this.convertArabeToRoman(Integer.parseInt(moisA));
+                String anneeR = this.convertArabeToRoman(Integer.parseInt(anneeA));
+
+                return jourR+"/"+moisR+"/"+anneeR;
+            }
+            else {
+                return "Date incorrecte";
+            }
+            
+        }
+        else {
+            return "Séparateur incorrect";
+        }
     }
 
     @Override
@@ -53,7 +85,7 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
                    else {bool=false;}
               }
               
-          if(bool==false){/*System.out.println("Conversion impossible, nombre romain mal formé.");*/break;}
+          if(bool==false){x = -1; break;}
         }
         
         if(bool)

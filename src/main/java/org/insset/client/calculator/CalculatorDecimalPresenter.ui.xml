@@ -8,10 +8,10 @@
     <div class="bs-section">
         <g:FlowPanel>
             <g:FlowPanel>
-                <g:Label>Quelle valeur voulez-vous convertir en decimal</g:Label>
+                <g:Label>Quelle valeur voulez-vous convertir en decimal ?</g:Label>
             </g:FlowPanel>
             <g:FlowPanel>          
-              <g:TextBox ui:field="valR" text="Entrer une valeur"/>
+              <g:TextBox ui:field="valR" text=""/>
               <g:SubmitButton ui:field="boutonConvertRToA" text="Convertir"/>
             </g:FlowPanel>
             <g:FlowPanel>
@@ -19,17 +19,17 @@
             </g:FlowPanel>
             <g:FlowPanel >
                 
-                <g:ResetButton ui:field="boutonClearR" text="Clear"/>
+                <g:ResetButton ui:field="boutonClearR" text="Réinitialiser"/>
             </g:FlowPanel>
         </g:FlowPanel>
         <g:FlowPanel>
         </g:FlowPanel>
         <g:FlowPanel>
             <g:FlowPanel>
-                <g:Label>Quelle valeur voulez-vous convertir en chiffre romain</g:Label>
+                <g:Label>Quelle valeur voulez-vous convertir en chiffre romain ?</g:Label>
             </g:FlowPanel>
             <g:FlowPanel>          
-              <g:TextBox ui:field="valA" text="Entrer une valeur"/>
+              <g:TextBox ui:field="valA" text=""/>
               <g:SubmitButton ui:field="boutonConvertAToR" text="Convertir"/>
             </g:FlowPanel>
             <g:FlowPanel>
@@ -37,17 +37,17 @@
             </g:FlowPanel>
             <g:FlowPanel>
                 
-                <g:ResetButton ui:field="boutonClearA" text="Clear"/>
+                <g:ResetButton ui:field="boutonClearA" text="Réinitialiser"/>
             </g:FlowPanel>
         </g:FlowPanel>
         <g:FlowPanel>
         </g:FlowPanel>
         <g:FlowPanel>
             <g:FlowPanel>
-                <g:Label>Quelle date voulez-vous convertir?</g:Label>
+                <g:Label>Quelle date voulez-vous convertir en chiffre romain ?</g:Label>
             </g:FlowPanel>
             <g:FlowPanel>          
-              <g:TextBox ui:field="valD" text="Entrer une valeur"/>
+              <g:TextBox ui:field="valD" text="Entrez une date (JJ/MM/AAAA)"/>
               <g:SubmitButton ui:field="boutonConvertD" text="Convertir"/>
             </g:FlowPanel>
             <g:FlowPanel>
@@ -55,7 +55,7 @@
             </g:FlowPanel>
             <g:FlowPanel>
                 
-                <g:ResetButton ui:field="boutonClearD" text="Clear"/>
+                <g:ResetButton ui:field="boutonClearD" text="Réinitialiser"/>
             </g:FlowPanel>
         </g:FlowPanel>
       <!--</g:Form>-->
