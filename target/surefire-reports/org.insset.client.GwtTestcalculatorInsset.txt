@@ -1,6 +1,52 @@
 -------------------------------------------------------------------------------
 Test set: org.insset.client.GwtTestcalculatorInsset
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 57.666 sec
-testFieldVerifier(org.insset.client.GwtTestcalculatorInsset)  Time elapsed: 57.136 sec
-testExempleService(org.insset.client.GwtTestcalculatorInsset)  Time elapsed: 0.427 sec
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 53.262 sec <<< FAILURE!
+testFieldVerifier(org.insset.client.GwtTestcalculatorInsset)  Time elapsed: 53.088 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.google.gwt.dev.util.DiskCache.readByteArray(DiskCache.java:99)
+	at com.google.gwt.dev.util.DiskCacheToken.readByteArray(DiskCacheToken.java:53)
+	at com.google.gwt.dev.javac.CompiledClass.getBytes(CompiledClass.java:139)
+	at com.google.gwt.dev.javac.CompilationUnitTypeOracleUpdater.addNewTypesDontIndex(CompilationUnitTypeOracleUpdater.java:490)
+	at com.google.gwt.dev.javac.CompilationUnitTypeOracleUpdater.addNewUnits(CompilationUnitTypeOracleUpdater.java:463)
+	at com.google.gwt.dev.javac.CompilationState.assimilateUnits(CompilationState.java:262)
+	at com.google.gwt.dev.javac.CompilationState.<init>(CompilationState.java:109)
+	at com.google.gwt.dev.javac.CompilationStateBuilder.doBuildFrom(CompilationStateBuilder.java:595)
+	at com.google.gwt.dev.javac.CompilationStateBuilder.buildFrom(CompilationStateBuilder.java:513)
+	at com.google.gwt.dev.javac.CompilationStateBuilder.buildFrom(CompilationStateBuilder.java:499)
+	at com.google.gwt.dev.cfg.ModuleDef.getCompilationState(ModuleDef.java:668)
+	at com.google.gwt.junit.JUnitShell.runTestImpl(JUnitShell.java:1319)
+	at com.google.gwt.junit.JUnitShell.runTestImpl(JUnitShell.java:1284)
+	at com.google.gwt.junit.JUnitShell.runTest(JUnitShell.java:678)
+	at com.google.gwt.junit.client.GWTTestCase.runTest(GWTTestCase.java:421)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at com.google.gwt.junit.client.GWTTestCase.run(GWTTestCase.java:247)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.codehaus.mojo.gwt.test.MavenTestRunner.doRun(MavenTestRunner.java:105)
+	at junit.textui.TestRunner.start(TestRunner.java:183)
+	at org.codehaus.mojo.gwt.test.MavenTestRunner.main(MavenTestRunner.java:63)
+
+testExempleService(org.insset.client.GwtTestcalculatorInsset)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.google.gwt.junit.JUnitShell.checkTestClassInCurrentModule(JUnitShell.java:721)
+	at com.google.gwt.junit.JUnitShell.runTestImpl(JUnitShell.java:1328)
+	at com.google.gwt.junit.JUnitShell.runTestImpl(JUnitShell.java:1284)
+	at com.google.gwt.junit.JUnitShell.runTest(JUnitShell.java:678)
+	at com.google.gwt.junit.client.GWTTestCase.runTest(GWTTestCase.java:421)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at com.google.gwt.junit.client.GWTTestCase.run(GWTTestCase.java:247)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.codehaus.mojo.gwt.test.MavenTestRunner.doRun(MavenTestRunner.java:105)
+	at junit.textui.TestRunner.start(TestRunner.java:183)
+	at org.codehaus.mojo.gwt.test.MavenTestRunner.main(MavenTestRunner.java:63)
+

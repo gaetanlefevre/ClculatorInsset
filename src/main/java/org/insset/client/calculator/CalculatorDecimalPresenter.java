@@ -135,7 +135,11 @@ public class CalculatorDecimalPresenter extends Composite {
             }
 
             public void onSuccess(Integer result) {
-                new DialogBoxInssetPresenter("Convertion Roman to arabe", valR.getText(), String.valueOf(result));
+                if(result == -1){
+                    new DialogBoxInssetPresenter("Convertion Roman to arabe", valR.getText(), "Nombre invalide");
+                } else {
+                    new DialogBoxInssetPresenter("Convertion Roman to arabe", valR.getText(), String.valueOf(result));
+                }
             }
         });
     }

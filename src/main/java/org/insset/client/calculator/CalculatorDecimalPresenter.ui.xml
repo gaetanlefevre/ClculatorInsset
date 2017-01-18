@@ -11,7 +11,7 @@
                 <g:Label>Quelle valeur voulez-vous convertir en decimal ?</g:Label>
             </g:FlowPanel>
             <g:FlowPanel>          
-              <g:TextBox ui:field="valR" text=""/>
+              <g:TextBox ui:field="valR" text="Entrez un chiffre romain entre I et MM"/>
               <g:SubmitButton ui:field="boutonConvertRToA" text="Convertir"/>
             </g:FlowPanel>
             <g:FlowPanel>
@@ -29,7 +29,7 @@
                 <g:Label>Quelle valeur voulez-vous convertir en chiffre romain ?</g:Label>
             </g:FlowPanel>
             <g:FlowPanel>          
-              <g:TextBox ui:field="valA" text=""/>
+              <g:TextBox ui:field="valA" text="Entrez un entier entre 0 et 2000"/>
               <g:SubmitButton ui:field="boutonConvertAToR" text="Convertir"/>
             </g:FlowPanel>
             <g:FlowPanel>
